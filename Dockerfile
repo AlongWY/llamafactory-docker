@@ -12,15 +12,15 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     https://github.com/AlongWY/deepspeed_wheels/releases/download/v0.14.2/deepspeed-0.14.2+cu121torch2.3-cp310-cp310-manylinux_2_24_x86_64.whl \
     https://github.com/flashinfer-ai/flashinfer/releases/download/v0.0.4/flashinfer-0.0.4+cu121torch2.3-cp310-cp310-linux_x86_64.whl \
     https://github.com/vllm-project/vllm/releases/download/v0.4.3/vllm-0.4.3-cp310-cp310-manylinux1_x86_64.whl \
-    nltk jieba rouge-chinese \
-    bitsandbytes \
-    galore-torch \
-    badam \
-    optimum auto-gptq \
-    autoawq \
-    "aqlm[gpu]" \
+    git+https://github.com/unslothai/unsloth \
+    bitsandbytes  optimum auto-gptq autoawq \
     transformers_stream_generator \
-    modelscope \
+    modelscope openai setuptools \
+    nltk jieba rouge-chinese \
+    tensorboard wandb mlflow \
+    galore-torch badam \
+    protobuf==4.25.3 \
+    "aqlm[gpu]" \
     llamafactory
 
 ENTRYPOINT ["llamafactory-cli"]
