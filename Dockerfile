@@ -8,12 +8,14 @@ WORKDIR /workspace
 
 # install additional dependencies for sglang api server
 RUN --mount=type=cache,target=/root/.cache/pip \
+    --mount=type=cache,target=/root/.cache/pip \
+    apt-get update && apt-get install -y --no-install-recommends git && apt-get clean && rm -rf /var/lib/apt/lists/* \
     pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.5.9.post1/flash_attn-2.5.9.post1+cu122torch2.3cxx11abiFALSE-cp310-cp310-linux_x86_64.whl \
     https://github.com/AlongWY/deepspeed_wheels/releases/download/v0.14.2/deepspeed-0.14.2+cu121torch2.3-cp310-cp310-manylinux_2_24_x86_64.whl \
     https://github.com/flashinfer-ai/flashinfer/releases/download/v0.0.4/flashinfer-0.0.4+cu121torch2.3-cp310-cp310-linux_x86_64.whl \
     https://github.com/vllm-project/vllm/releases/download/v0.4.3/vllm-0.4.3-cp310-cp310-manylinux1_x86_64.whl \
-    git+https://github.com/unslothai/unsloth \
-    bitsandbytes  optimum auto-gptq autoawq \
+    "unsloth[cu121] @ git+https://github.com/unslothai/unsloth.git" \
+    bitsandbytes optimum auto-gptq autoawq \
     transformers_stream_generator \
     modelscope openai setuptools \
     nltk jieba rouge-chinese \
