@@ -19,7 +19,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     optimum auto-gptq \
     autoawq \
     "aqlm[gpu]" \
-    transformers_stream_generat \
+    transformers_stream_generator \
     modelscope \
     llamafactory
 
