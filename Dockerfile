@@ -2,7 +2,7 @@
 # can be directly used to run the OpenAI compatible server.
 
 #################### LLAMA FACTORY ####################
-FROM pytorch/pytorch:2.3.0-cuda12.1-cudnn8-runtime AS LLAMA FACTORY
+FROM pytorch/pytorch:2.3.0-cuda12.1-cudnn8-runtime AS FACTORY
 
 WORKDIR /workspace
 
