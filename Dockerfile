@@ -14,14 +14,13 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     https://github.com/flashinfer-ai/flashinfer/releases/download/v0.0.9/flashinfer-0.0.9+cu121torch2.3-cp310-cp310-linux_x86_64.whl \
     https://github.com/vllm-project/vllm/releases/download/v0.5.1/vllm-0.5.1-cp310-cp310-manylinux1_x86_64.whl \
     "unsloth[cu121] @ git+https://github.com/unslothai/unsloth.git" \
-    bitsandbytes optimum auto-gptq autoawq \
+    bitsandbytes optimum auto-gptq autoawq hqq eetq awq "aqlm[gpu,cpu]>=1.1.0" \
     transformers_stream_generator \
     modelscope openai setuptools \
     nltk jieba rouge-chinese \
     tensorboard wandb mlflow \
     galore-torch badam \
     protobuf==4.25.3 \
-    "aqlm[gpu]" \
     llamafactory
 
 ENTRYPOINT ["llamafactory-cli"]
