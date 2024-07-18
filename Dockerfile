@@ -2,13 +2,14 @@
 # can be directly used to run the OpenAI compatible server.
 
 #################### LLAMA FACTORY ####################
-FROM pytorch/pytorch:2.3.1-cuda12.1-cudnn8-runtime AS FACTORY
+FROM pytorch/pytorch:2.3.1-cuda12.1-cudnn8-runtime AS llamafactory
 
 WORKDIR /workspace
 
 # install additional dependencies for LLAMA FACTORY api server
+RUN apt-get update && apt-get install -y --no-install-recommends git && apt-get clean && rm -rf /var/lib/apt/lists/*
+    
 RUN --mount=type=cache,target=/root/.cache/pip \
-    apt-get update && apt-get install -y --no-install-recommends git && apt-get clean && rm -rf /var/lib/apt/lists/* && \
     pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.6.1/flash_attn-2.6.1+cu122torch2.3cxx11abiFALSE-cp310-cp310-linux_x86_64.whl \
     https://github.com/AlongWY/deepspeed_wheels/releases/download/v0.14.4/deepspeed-0.14.4+cu121torch2.3-cp310-cp310-manylinux_2_24_x86_64.whl \
     https://github.com/flashinfer-ai/flashinfer/releases/download/v0.1.0/flashinfer-0.1.0+cu121torch2.3-cp310-cp310-linux_x86_64.whl \
