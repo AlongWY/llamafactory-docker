@@ -15,7 +15,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     https://github.com/flashinfer-ai/flashinfer/releases/download/v0.1.0/flashinfer-0.1.0+cu121torch2.3-cp310-cp310-linux_x86_64.whl \
     https://github.com/vllm-project/vllm/releases/download/v0.5.2/vllm-0.5.2-cp310-cp310-manylinux1_x86_64.whl \
     "unsloth[cu121] @ git+https://github.com/unslothai/unsloth.git" \
-    bitsandbytes optimum auto-gptq autoawq hqq eetq awq "aqlm[gpu,cpu]>=1.1.0" \
+    bitsandbytes optimum auto-gptq autoawq hqq eetq "aqlm[gpu,cpu]>=1.1.0" \
     transformers_stream_generator \
     modelscope openai setuptools \
     nltk jieba rouge-chinese \
