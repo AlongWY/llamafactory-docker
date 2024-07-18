@@ -22,7 +22,6 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     nltk jieba rouge-chinese \
     tensorboard wandb \
     galore-torch badam \
-    protobuf==4.25.3 \
     "llamafactory @ git+https://github.com/hiyouga/LLaMA-Factory.git"
 
 ENTRYPOINT ["llamafactory-cli"]
