@@ -20,7 +20,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     transformers_stream_generator \
     modelscope openai setuptools \
     nltk jieba rouge-chinese \
-    tensorboard wandb mlflow \
+    tensorboard wandb \
     galore-torch badam \
     protobuf==4.25.3 \
     "llamafactory @ git+https://github.com/hiyouga/LLaMA-Factory.git"
