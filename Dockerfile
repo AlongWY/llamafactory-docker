@@ -2,7 +2,7 @@
 # can be directly used to run the OpenAI compatible server.
 
 #################### LLAMA FACTORY ####################
-FROM pytorch/pytorch:2.3.1-cuda12.1-cudnn8-runtime AS llamafactory
+FROM pytorch/pytorch:2.4.1-cuda12.1-cudnn9-devel AS llamafactory
 
 WORKDIR /workspace
 
@@ -10,11 +10,11 @@ WORKDIR /workspace
 RUN apt-get update && apt-get install -y --no-install-recommends git && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 RUN --mount=type=cache,target=/root/.cache/pip \
-    pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.6.1/flash_attn-2.6.1+cu123torch2.3cxx11abiFALSE-cp310-cp310-linux_x86_64.whl \
-    https://github.com/AlongWY/deepspeed_wheels/releases/download/v0.14.4/deepspeed-0.14.4+cu121torch2.3-cp310-cp310-manylinux_2_24_x86_64.whl \
-    https://github.com/flashinfer-ai/flashinfer/releases/download/v0.1.0/flashinfer-0.1.0+cu121torch2.3-cp310-cp310-linux_x86_64.whl \
+    pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.6.3/flash_attn-2.6.3+cu123torch2.4cxx11abiFALSE-cp310-cp310-linux_x86_64.whl \
+    https://github.com/AlongWY/deepspeed_wheels/releases/download/v0.15.2/deepspeed-0.15.2+cu121torch2.4-cp310-cp310-manylinux_2_24_x86_64.whl \
+    https://github.com/flashinfer-ai/flashinfer/releases/download/v0.1.6/flashinfer-0.1.6+cu121torch2.4-cp310-cp310-linux_x86_64.whl \
     https://github.com/vllm-project/vllm/releases/download/v0.5.2/vllm-0.5.2-cp310-cp310-manylinux1_x86_64.whl \
-    https://download.pytorch.org/whl/cu121/xformers-0.0.27-cp310-cp310-manylinux2014_x86_64.whl \
+    https://download.pytorch.org/whl/cu121/xformers-0.0.27.post2-cp310-cp310-manylinux2014_x86_64.whl \
     "unsloth[huggingface] @ git+https://github.com/unslothai/unsloth.git" \
     bitsandbytes optimum auto-gptq autoawq hqq eetq "aqlm[gpu,cpu]>=1.1.0" \
     transformers_stream_generator \
@@ -22,7 +22,8 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     nltk jieba rouge-chinese \
     tensorboard wandb \
     galore-torch badam \
-    "llamafactory==0.8.3"
+    liger-kernel \
+    "llamafactory==0.9.0"
 
 ENTRYPOINT ["llamafactory-cli"]
 #################### LLAMA FACTORY ####################
