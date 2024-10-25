@@ -15,7 +15,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     https://github.com/AlongWY/deepspeed_wheels/releases/download/v0.15.3/deepspeed-0.15.3+cu121torch2.4-cp311-cp311-manylinux_2_28_x86_64.whl \
     https://github.com/flashinfer-ai/flashinfer/releases/download/v0.1.6/flashinfer-0.1.6+cu121torch2.4-cp311-cp311-linux_x86_64.whl \
     "unsloth[huggingface] @ git+https://github.com/unslothai/unsloth.git" \
-    bitsandbytes optimum auto-gptq autoawq hqq "aqlm[gpu,cpu]>=1.1.0" \
+    bitsandbytes optimum auto-gptq autoawq hqq \
     transformers_stream_generator \
     modelscope openai setuptools \
     nltk jieba rouge-chinese \
