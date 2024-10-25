@@ -2,7 +2,7 @@
 # can be directly used to run the OpenAI compatible server.
 
 #################### LLAMA FACTORY ####################
-FROM pytorch/pytorch:2.4.1-cuda12.1-cudnn9-devel AS llamafactory
+FROM pytorch/pytorch:2.4.0-cuda12.1-cudnn9-devel AS llamafactory
 
 WORKDIR /workspace
 
