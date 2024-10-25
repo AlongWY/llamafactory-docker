@@ -11,11 +11,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends git && apt-get 
 
 RUN --mount=type=cache,target=/root/.cache/pip \
     python --version && \
-    pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.6.3/flash_attn-2.6.3+cu123torch2.4cxx11abiFALSE-cp310-cp310-linux_x86_64.whl \
-    https://github.com/AlongWY/deepspeed_wheels/releases/download/v0.15.3/deepspeed-0.15.3+cu121torch2.4-cp310-cp310-manylinux_2_24_x86_64.whl \
-    https://github.com/flashinfer-ai/flashinfer/releases/download/v0.1.6/flashinfer-0.1.6+cu121torch2.4-cp310-cp310-linux_x86_64.whl \
-    https://github.com/vllm-project/vllm/releases/download/v0.5.2/vllm-0.5.2-cp310-cp310-manylinux1_x86_64.whl \
-    https://download.pytorch.org/whl/cu121/xformers-0.0.27.post2-cp310-cp310-manylinux2014_x86_64.whl \
+    pip install https://github.com/Dao-AILab/flash-attention/releases/download/v2.6.3/flash_attn-2.6.3+cu123torch2.4cxx11abiFALSE-cp311-cp311-linux_x86_64.whl \
+    https://github.com/AlongWY/deepspeed_wheels/releases/download/v0.15.3/deepspeed-0.15.3+cu121torch2.4-cp311-cp311-manylinux_2_24_x86_64.whl \
+    https://github.com/flashinfer-ai/flashinfer/releases/download/v0.1.6/flashinfer-0.1.6+cu121torch2.4-cp311-cp311-linux_x86_64.whl \
+    https://github.com/vllm-project/vllm/releases/download/v0.5.2/vllm-0.5.2-cp311-cp311-manylinux1_x86_64.whl \
+    https://download.pytorch.org/whl/cu121/xformers-0.0.27.post2-cp311-cp311-manylinux2014_x86_64.whl \
     "unsloth[huggingface] @ git+https://github.com/unslothai/unsloth.git" \
     bitsandbytes optimum auto-gptq autoawq hqq eetq "aqlm[gpu,cpu]>=1.1.0" \
     transformers_stream_generator \
