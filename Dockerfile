@@ -6,6 +6,8 @@ FROM pytorch/pytorch:2.4.1-cuda12.1-cudnn9-devel AS llamafactory
 
 WORKDIR /workspace
 
+ENV CUDA_HOME="/usr/local/cuda-12.1"
+
 # install additional dependencies for LLAMA FACTORY api server
 RUN apt-get update && apt-get install -y --no-install-recommends git && apt-get clean && rm -rf /var/lib/apt/lists/*
 
