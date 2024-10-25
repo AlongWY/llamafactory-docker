@@ -17,7 +17,7 @@ RUN --mount=type=cache,target=/root/.cache/pip \
     https://github.com/vllm-project/vllm/releases/download/v0.5.2/vllm-0.5.2-cp311-cp311-manylinux1_x86_64.whl \
     https://download.pytorch.org/whl/cu121/xformers-0.0.27.post2-cp311-cp311-manylinux2014_x86_64.whl \
     "unsloth[huggingface] @ git+https://github.com/unslothai/unsloth.git" \
-    bitsandbytes optimum auto-gptq autoawq hqq eetq "aqlm[gpu,cpu]>=1.1.0" \
+    bitsandbytes optimum auto-gptq autoawq hqq "aqlm[gpu,cpu]>=1.1.0" \
     transformers_stream_generator \
     modelscope openai setuptools \
     nltk jieba rouge-chinese \
